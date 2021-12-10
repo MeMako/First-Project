@@ -42,6 +42,29 @@ public class Movement : MonoBehaviour
             rb.AddForce(jump * jumpSpeed, ForceMode.Impulse);
             isGrounded = false;
         }
+        
+        if(Input.GetKey(KeyCode.W))
+        {
+            rb.velocity = transform.forward * speed;
+        }
+        
+        if(Input.GetKey(KeyCode.S))
+        {
+            rb.velocity = -transform.forward * speed;
+        }
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(new Vector3(0, 1, 1) * Time.deltaTime*speed,Space.World);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(new Vector3(0, -1, 1) * Time.deltaTime * speed, Space.World);
+        }
+
+
+        /*
         //This gets the axis (direction) we want to go
         float xDirection = Input.GetAxis("Horizontal");
         float zDirection = Input.GetAxis("Vertical");
@@ -50,5 +73,6 @@ public class Movement : MonoBehaviour
         Vector3 moveDirecton = new Vector3(xDirection, 0.0f, zDirection);
         //Make sure to add deltaTime because if not passes thru objects (limits to seconds instead of using computer speed)
         transform.position += moveDirecton * speed * Time.deltaTime;
+        */
     }
 }
