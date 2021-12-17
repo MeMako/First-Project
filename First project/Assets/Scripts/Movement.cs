@@ -47,6 +47,8 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = transform.forward * speed;
         }
+
+        
         
         if(Input.GetKey(KeyCode.S))
         {
@@ -55,12 +57,17 @@ public class Movement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(new Vector3(0, 1, 1) * Time.deltaTime*speed,Space.World);
+            float newspeed = speed;
+            newspeed = newspeed + 10.0f;
+            transform.Rotate(new Vector3(0, 1, 1) * Time.deltaTime*newspeed,Space.World);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(new Vector3(0, -1, 1) * Time.deltaTime * speed, Space.World);
+
+            float newspeed = speed;
+            newspeed = newspeed + 10.0f;
+            transform.Rotate(new Vector3(0, -1, 1) * Time.deltaTime * newspeed, Space.World);
         }
 
 
